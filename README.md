@@ -6,7 +6,7 @@
 基于lemon-scripts的深度定制的react18开发模版，增强版的cra脚手架，相比cra，增加了less以及一些业务性的babel支持。
 > 同时，抛弃了cra-custom，这意味着连config-overrides都不需要维护了，真正意义上的0配置～
 
-配合[lemon-scripts](https://github.com/lemondreamtobe/lemon-scripts)使用
+配合[lemon-scripts](https://github.com/lemondreamtobe/lemon-scripts)使用，如果有cdn或者分包之类的需求请查看[文档](https://github.com/lemondreamtobe/lemon-scripts)
 > 一切都准备完毕，开箱即用即可 \0^◇^0/
 
 ## 技术栈(你需要了解的东西)
