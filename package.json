@@ -18,8 +18,8 @@
   },
   "scripts": {
     "start": "lemon-scripts start",
-    "build": "lemon-scripts build --analyze",
-    "test": "lemon-scripts test"
+    "build": "lemon-scripts build",
+    "analyze": "lemon-scripts build --analyze"
   },
   "browserslist": {
     "production": [
