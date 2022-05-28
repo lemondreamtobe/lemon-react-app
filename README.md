@@ -65,4 +65,91 @@ $ yarn start
 $ yarn build
 ```
 
+## Document & Explain
 
+#### 支持 less
+通过替换了scss正则，以及引入了less-loader，注意原cra不支持less
+
+#### 支持svg
+```js
+import Logo from '@/images/logo.svg';
+ <img src={Logo}  />
+ or
+ <Logo />
+```
+
+
+#### 分包&cdn
+在lemon-scripts 提前做好了一些工具库的分离，将一些稳定的库不需要被经常打包的依赖存放在cdn，比如react。
+通过这样，我们在开发之前就力争提供一个完全pure的环境，让你的bundle尽量只包含你的业务代码。
+![app](https://shenshipin-1253925857.cos.ap-guangzhou.myqcloud.com/2022/05/28/03MS4OVzL5KfD07WvNkpqOdcIszQtpjjYuXDMPm1xJ6o8rVW9kh59FuODO1bNkpu_SAanHiMB11841653713358_.pic.jpg)
+可以看到，我们将一系列工具库，都提取到了cdn，节省了构建时间和打包效率。
+![app2](https://shenshipin-1253925857.cos.ap-guangzhou.myqcloud.com/2022/05/28/03MS4OVzL5KfD07WvNkpqOdcIszQtpjjYuXDMPm1xJ6o8rVW9kh59FuODO1bNkpu_TmPXYjha11851653713376_.pic.jpg)
+
+<font color="red">注意，因为lemon-scripts自带支持将以下依赖抽离成cdn。
+react | react-dom | react-router-dom | react-router | mobx |axios | mobx-react-lite。
+
+如果你不需要这些cdn，可以在package.json中加配置来替换：
+```js
+"cdnModules" : [{name: 'react', path: 'react.min.js'}]
+```
+
+lemon-scripts默认使用了[七牛云](http://www.staticfile.org/) 作为cdn服务，如果你想使用自己的cdn，可以在package.json中加配置来替换：</font>
+```js
+"cdnSourcePaths" : "https://www.baidu.com"
+```
+
+#### 移动端h5适配
+如果你想做移动端的项目，可以在package.json中设置设计尺寸375/750/xxx等等，内置的px2rem-loader将会自动工作。
+```js
+"designSize": 375
+```
+
+#### webpack analyze
+lemon scripts内置了webpack analyze plugin，如何开启分析，只需要命令行加入 --analyze
+
+
+#### alias resolve
+项目中想要alias，因为lemon的项目是ts项目，所以lemon-scripts设计之初，会从tsconfig.paths.json去读。
+也就是ts path能读到的module，用了lemon0-scripts都可以通过alias找到。
+```js
+// tsconfig.paths.json
+{
+  "compilerOptions": {
+    "paths": { 
+      "@/global/*": [
+        "src/global/*"
+      ], 
+      "@/helpers/*": [
+        "src/helpers/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/store/*": [
+        "src/store/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],  
+      "@/images/*": [
+        "src/images/*"
+      ],
+      "@/const/*": [
+        "src/const/*"
+      ],   
+      "@/type/*": [
+        "src/type/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+    },
+  }
+```
+
+#### 同时支持多页和单页
+cra项目初始化是单页应用，部分场景和业务需要多页，这块在加紧施工中。
+
+## More
+由于lemon-scripts是基于cra项目来扩展的，如果lemon-scripts并不能解决你的问题，可以看看[create-react-app](https://create-react-app.dev/docs/advanced-configuration/)，cra支持的lemon都会支持。
