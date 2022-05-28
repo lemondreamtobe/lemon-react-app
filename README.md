@@ -6,11 +6,11 @@
 基于lemon-scripts的深度定制的react18开发模版，增强版的cra脚手架，相比cra，增加了less以及一些业务性的babel支持。
 > 同时，抛弃了cra-custom，这意味着连config-overrides都不需要维护了，真正意义上的0配置～
 
-配合[lemon-scripts](https://www.npmjs.com/package/@szmg-fe/scripts)使用
+配合[lemon-scripts](https://github.com/lemondreamtobe/lemon-scripts)使用
 > 一切都准备完毕，开箱即用即可 \0^◇^0/
 
 ## 技术栈(你需要了解的东西)
-- **使用[lemon-scripts](https://www.npmjs.com/package/react-scripts/)进行集成和打包**，不再需要烦恼于各种配置 零配置文件支持更快的热更新和更优化的生产构建。
+- **使用[lemon-scripts](https://github.com/lemondreamtobe/lemon-scripts)进行集成和打包**，不再需要烦恼于各种配置 零配置文件支持更快的热更新和更优化的生产构建。
 - **封装了数据模拟**，使用axios请求接口，本地即可支持mock数据，可独立于后台开发前端需求
 - **引入了mobx6**, 推荐使用mobx-react-lite，更加轻量化
 - **react18**, 相比旧的脚手架，全面拥抱react18
