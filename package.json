@@ -5,6 +5,7 @@
   "dependencies": {
     "express": "^4.18.1",
     "history": "5.3.0",
+    "lemon-scripts": "^0.0.5",
     "mobx": "6.5.0",
     "mobx-react-lite": "^3.4.0",
     "react": "^18.1.0",
@@ -34,7 +35,6 @@
     ]
   },
   "devDependencies": {
-    "lemon-scripts": "0.0.4",
     "@types/jest": "^27.5.1",
     "@types/node": "^17.0.34",
     "@types/react": "^18.0.9",
