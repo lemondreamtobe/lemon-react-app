@@ -67,10 +67,10 @@ $ yarn build
 
 ## Document & Explain
 
-#### 支持 less
+### 支持 less
 通过替换了scss正则，以及引入了less-loader，注意原cra不支持less
 
-#### 支持svg
+### 支持svg
 ```js
 import Logo from '@/images/logo.svg';
  <img src={Logo}  />
@@ -79,7 +79,7 @@ import Logo from '@/images/logo.svg';
 ```
 
 
-#### 分包&cdn
+### 分包&cdn
 在lemon-scripts 提前做好了一些工具库的分离，将一些稳定的库不需要被经常打包的依赖存放在cdn，比如react。
 通过这样，我们在开发之前就力争提供一个完全pure的环境，让你的bundle尽量只包含你的业务代码。
 ![app](https://shenshipin-1253925857.cos.ap-guangzhou.myqcloud.com/2022/05/28/03MS4OVzL5KfD07WvNkpqOdcIszQtpjjYuXDMPm1xJ6o8rVW9kh59FuODO1bNkpu_SAanHiMB11841653713358_.pic.jpg)
@@ -99,17 +99,17 @@ lemon-scripts默认使用了[七牛云](http://www.staticfile.org/) 作为cdn服
 "cdnSourcePaths" : "https://www.baidu.com"
 ```
 
-#### 移动端h5适配
+### 移动端h5适配
 如果你想做移动端的项目，可以在package.json中设置设计尺寸375/750/xxx等等，内置的px2rem-loader将会自动工作。
 ```js
 "designSize": 375
 ```
 
-#### webpack analyze
+### webpack analyze
 lemon scripts内置了webpack analyze plugin，如何开启分析，只需要命令行加入 --analyze
 
 
-#### alias resolve
+### alias resolve
 项目中想要alias，因为lemon的项目是ts项目，所以lemon-scripts设计之初，会从tsconfig.paths.json去读。
 也就是ts path能读到的module，用了lemon0-scripts都可以通过alias找到。
 ```js
@@ -149,7 +149,11 @@ lemon scripts内置了webpack analyze plugin，如何开启分析，只需要命
 ```
 
 #### 同时支持多页和单页
-cra项目初始化是单页应用，部分场景和业务需要多页，这块在加紧施工中。
+```js
+// package.json
+"multiPage": true
+```
+在package.json设置multiPage，则lemon-scripts将开启多页面模式，会从根目录下的src/pages 中找到所有的pages模块进行打包开发。
 
 ## More
 由于lemon-scripts是基于cra项目来扩展的，如果lemon-scripts并不能解决你的问题，可以看看[create-react-app](https://create-react-app.dev/docs/advanced-configuration/)，cra支持的lemon都会支持。
