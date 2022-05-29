@@ -57,6 +57,7 @@
 ## 使用方法
 
 ``` javascript
+git clone https://github.com/lemondreamtobe/lemon-react-app
 // 安装依赖
 $ yarn
 // 启动
