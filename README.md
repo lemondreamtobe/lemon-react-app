@@ -148,7 +148,7 @@ lemon scripts内置了webpack analyze plugin，如何开启分析，只需要命
   }
 ```
 
-#### 同时支持多页和单页
+### 同时支持多页和单页
 ```js
 // package.json
 "multiPage": true
