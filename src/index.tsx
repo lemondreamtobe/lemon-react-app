@@ -2,8 +2,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'react-mobile-message/assets/modal.less';
-import 'react-mobile-message/assets/toast.less';
 
 async function render() {
     const run = () => {
