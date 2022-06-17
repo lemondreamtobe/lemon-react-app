@@ -100,6 +100,12 @@ lemon-scripts默认使用了[七牛云](http://www.staticfile.org/) 作为cdn服
 "cdnSourcePaths" : "https://www.baidu.com"
 ```
 
+同时，因为lemon夹带了一些自己常用的库在cdn里，算是私货，如果你想删去一些无用的cdn可以在你的package.json这么做：
+```js
+"ignoresCdnPackage": ["history", "react-router", "react-router-dom", "mobx", "mobx-react-lite"]
+```
+
+
 ### 移动端h5适配
 如果你想做移动端的项目，可以在package.json中设置设计尺寸375/750/xxx等等，内置的px2rem-loader将会自动工作。
 ```js
