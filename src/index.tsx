@@ -1,6 +1,7 @@
+// @ts-nocheck
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './pages/home';
 import reportWebVitals from './reportWebVitals';
 
 async function render() {
@@ -11,7 +12,7 @@ async function render() {
         );
     }
 
-    try { 
+    try {
     } catch (err) {
 
     } finally {
@@ -27,8 +28,11 @@ reportWebVitals();
 
 if (process.env.NODE_ENV === 'development') {
     require('./mock/index');
-    // const VConsole = require('vconsole');
-    // var vConsoler = new VConsole();
+    const VConsole = require('vconsole');
+    var vConsoler = new VConsole();
     console.log('development')
 }
 render();
+
+
+

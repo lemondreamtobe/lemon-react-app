@@ -1,34 +1,58 @@
-import { useState, useEffect } from "react";
+// @ts-nocheck
+import React, { useState, useEffect, useDeferredValue, useTransition } from "react";
 import style from './index.module.less';
-import Logo from '@/images/logo.svg';
-import { observer } from 'mobx-react-lite'
-import counterStore from "../../store/count";
-import { Link } from "react-router-dom";
-import toast from "@/helpers/toast";
+// import { observer } from 'mobx-react-lite'
+
+const mockDataArray = new Array(4000).fill(1)
+function ShowText({ query }) {
+    const text = 'asdfghjk'
+    let children
+    if (text.indexOf(query) > 0) {
+        /* 找到匹配的关键词 */
+        const arr = text.split(query)
+        children = <div>{arr[0]}<span style={{ color: 'pink' }} >{query}</span>{arr[1]} </div>
+    } else {
+        children = <div>{text}</div>
+    }
+    return <div>{children}</div>
+}
+/* 列表数据 */
+function List({ query }) {
+    console.log('List渲染')
+    return <div className="list">
+        {query}
+    </div>
+}
+
+const NewList = React.memo(List)
 
 function App() {
     const [c, setC] = useState(18);
-
+    const [isPending, startTransition] = useTransition();
+    const deferValue = useDeferredValue(c);
+    debugger
     useEffect(() => {
         console.log('current c -> ', c);
-        toast('c 变成了' + c)
+        // toast('c 变成了' + c)
+        debugger
+
+        return () => {
+            console.log('destroy c -> ', c);
+            debugger
+
+        }
     }, [c]);
 
     return (
         <div className={`${style.App} ${c % 2 === 0 ? style.red : style.blue}`}>
-            <img src={Logo} className={style.logo} alt="logo" />
-            <h1>I am Lemon brother, I am {c} years old.</h1>
-            <button onClick={() => setC(i => ++i)}>add</button>
-            <button onClick={() => setC(i => --i)}>minus</button>
-            <h1>store counter {counterStore.count}</h1>
-            <button onClick={() => counterStore.increment()}>add</button>
-            <button onClick={() => counterStore.decrement()}>minus</button>
-            <h1>
-                <Link to="/login">Go to Login</Link>
-            </h1>
+            <button onClick={() => setC(i => ++i)}>add{c}</button>
+            <button id="b2" onClick={() => startTransition(() => {
+                setC(i => ++i)
+            })}>{isPending ? 'pending...' : ''}transition{c}</button>
+            <NewList query={deferValue} />
         </div>
     );
 }
-
-export default observer(App);
+constructor
+export default App;
 
