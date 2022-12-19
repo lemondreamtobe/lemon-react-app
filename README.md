@@ -162,5 +162,23 @@ lemon scripts内置了webpack analyze plugin，如何开启分析，只需要命
 ```
 在package.json设置multiPage，则lemon-scripts将开启多页面模式，会从根目录下的src/pages 中找到所有的pages模块进行打包开发。
 
+### 支持打包单/多模块
+```
+"scripts": {
+    "build:multiPage": "lemon-scripts build --multiPage",
+}
+
+yarn build:multiPage home login
+```
+/pages 模块下支持单个模块打包
+
+
+### 支持字体抽离
+```
+yarn fsw
+```
+该功能会自动从global/fonts下搜寻字体文件
+并且从src/fonts.txt中 按照你需要的字体进行抽离
+
 ## More
 由于lemon-scripts是基于cra项目来扩展的，如果lemon-scripts并不能解决你的问题，可以看看[create-react-app](https://create-react-app.dev/docs/advanced-configuration/)，cra支持的lemon都会支持。

@@ -19,6 +19,7 @@
     "start": "lemon-scripts start",
     "build": "lemon-scripts build",
     "analyze": "lemon-scripts build --analyze",
+    "build:multiPage": "lemon-scripts build --multiPage",
     "fsw": "node fsw"
   },
   "browserslist": {
